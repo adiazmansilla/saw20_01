@@ -26,7 +26,7 @@ app.get('/api/entities/:entityCode', async (req, res) => {
     } catch (err) {
 
         const error = {
-            msg: 'Error al listar'+err;
+            msg: JSON.stringify(err);
         }
         console.log('error desconocido', err);
         console.log(JSON.stringify(error.msg));
