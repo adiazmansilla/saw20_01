@@ -24,6 +24,7 @@ app.get('/api/entities/:entityCode', async (req, res) => {
             return res.status(200).json(JSON.parse(body));
         });
     } catch (err) {
+        console.error("lala"+err);
         const error = {
             msg: 'Error al listar'
         }
