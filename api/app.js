@@ -24,11 +24,12 @@ app.get('/api/entities/:entityCode', async (req, res) => {
             return res.status(200).json(JSON.parse(body));
         });
     } catch (err) {
-        console.error("lala"+err);
+
         const error = {
             msg: 'Error al listar'
         }
         console.log('error desconocido', err);
+        console.log(JSON.stringify(error.msg));
         return res.status(500).json(error.msg);
     }
 });
