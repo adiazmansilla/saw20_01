@@ -45,19 +45,7 @@ body {background-color: white;}
 
 .images {
   float: right;
-  width:  300px;
-  height: 250px;
-  object-fit: cover;
-}
-.imagesInte {
-  float: left;
-  width:  300px;
+  width:  150px;
   height: 100px;
   object-fit: cover;
-}
-.imagesInteadm {
-  width:  300px;
-  height: 100px;
-  object-fit: contain;
-  vertical-align: text-bottom;
 }

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en" class="js-focus-visible" data-js-focus-visible=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SAW_01</title>
+    <link href="./SAW_01_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./SAW_01_files/style.css">
+
+<style type="text/css">
+@font-face {
+  font-weight: 400;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Book-cd7d2bcec649b1243839a15d5eb8f0a3.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Medium-d74eac43c78bd5852478998ce63dceb3.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Bold-83b8ceaf77f49c7cffa44107561909e4.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Black-bf067ecb8aa777ceb6df7d72226febca.woff2') format('woff2');
+}</style></head>
+<body>
+<header>
+    <img src="./SAW_01_files/utfsm.jpg" alt="Universidad Técnica Federico Santa María" class="left">
+    <img src="./SAW_01_files/subida-1.jpg" alt="Magíster en Tecnologías de la Información" class="right">
+</header>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col" style="text-align: right;margin-right: 50%;">2015</th>
+        <th scope="col" style="text-align: center">2016</th>
+        <th scope="col" style="text-align: center">2019</th>
+        <th scope="col" style="text-align: center">2021</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td style="text-align: center"><img src="./SAW_01_files/copaAmerica2015.jpg" class="images"></td>
+        <td style="text-align: center"><img src="./SAW_01_files/copaAmerica2016.jpg" class="images"></td>
+        <td style="text-align: center"><img src="./SAW_01_files/copaAmerica2019.jpg" class="images"></td>
+        <td style="text-align: center"><img src="./SAW_01_files/copaAmerica2021.jpg" class="images"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<h1>Entidades</h1>
+<div class="container">
+<input type="text" id="entCode" name="entCode">
+    <button type="button" onclick="fillEntities(document.getElementById(&#39;entCode&#39;).value)">Veamos las Entidades</button>
+</div>
+<br>
+<br>
+<!-- Trigger the modal with a button -->
+<button style="margin-left: 5%" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+    Agregar Anotación
+</button>
+<br>
+<br>
+
+<br>
+<table>
+    
+    <tbody><tr>
+        <!-- <td title="Header" valign="top"><ul id="entities" /></td> -->
+
+    </tr>
+</tbody></table>
+
+<form id="form1">
+    <table style="width:50%; text-align: center; margin-left: 5%">
+        <tbody><tr>
+            <th>Entidad</th>
+            <th>Código</th>
+            <th>Anotaciones</th>
+            <th>CRUD</th>
+        </tr>
+        <tr>
+            <td style="vertical-align: top"><div id="country-name"></div></td>
+            <td style="vertical-align: top"><div id="country-code"></div></td>
+            <td valign="top"><ul id="claims"></ul></td>
+            <td>
+                <button>Editar</button>
+                <button>Eliminar</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Comentario 2</td>
+            <td>
+                <button>Editar</button>
+                <button>Eliminar</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Comentario 3</td>
+            <td>
+                <button>Editar</button>
+                <button>Eliminar</button>
+            </td>
+        </tr>
+    </tbody></table>
+
+</form>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Agregar Anotación</h4>
+            </div>
+            <div class="modal-body">
+                <p>Se agregará una Anotación para la entidad: Santiago - Q2887</p>
+                <form>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Anotación:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="./SAW_01_files/code.js.descarga"></script>
+<script src="./SAW_01_files/bootstrap.bundle.min.js.descarga" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="./SAW_01_files/jquery-3.3.1.slim.min.js.descarga" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="./SAW_01_files/popper.min.js.descarga" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="./SAW_01_files/bootstrap.min.js.descarga" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body><loom-container id="lo-engage-ext-container"><div></div><loom-shadow classname="resolved"></loom-shadow></loom-container></html>

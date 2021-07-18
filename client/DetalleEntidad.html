@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAZFwUAz8vCAHJlUgDg4uIA08vLANTNyAAgHQ4A/f38AOnr6wA9NisA6u3xADw5KwArJhcAl4Z1ACspFwDb3d0A4eLjADIvIADk5uYA/vv3ACMjDwD9/f0A6OrpAOfr7AD+/f0A//39ANnW0gDa2dIAx8O+AOzu7AC0sKoA2tjYAO3v7wAWFgQAFxYEAPLv7wDf3dUA3tzbABcXBwDg3NsALiwYAN/h4QDh4eEA0crKANLKygAfGhAA1M3KAPj4+ADi5ucA5+jkANXT0wDo6uoAEhICAOzu7QDc19YAzMO/ANzc3ADe3NwAGhcIAOLd3wDh4N8A3+HiAEw+KgDl5eUA+vz8APz8/ADn6egA/vz8AFBINgDa09QAEA8DAFNMOQDKxMMAzMPAAI+OhwDe390A3uDgANHJyQBzaVkA+/z9AP/7+gDa0c8A6enpAFRINwDa1tUA6u7vANvW1QDg2dUA3dvbAOLk5AA1MB4A1c3NANXQzQCrrKIA+/v7AOXp6gD9+/sA5+nqAOvu8ABPTEQAU09EAEM9KgDd3twALysZAN/f3wDQyMgALi0fAOHf3wDh4OIAHRwIANTLyADm5+UA09HRAObo6AD++/wA6ejoAP3+/ABPSTwAiIWBALOtpgDp7e4AKCMUAJaDcgDc2toA4t7dAOHj4wDRzskA0szMANTMzADUz8wA+vr6ANbPzAD8+voA5ujpAN7Z2ADd2tsAFhUHAN/a2wC3trAA3t7eAODe3gBaUk8A6OPbAOXn5wDl6eQA5+fnAEtIOwDn6+oA2NPQAP7+/gDo7O0AEBACABEQAgAnJRMA2tXWANvZ2QDKxL8AeHVvAN7c2QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFRUVFRUVcp6KXoIVFRUVFRUVFUEjSHkiIToUm0MVFRUVFQcsgINcES0LZHs5YBUVFRV3LFsuNppYODlLZnsZFRWOTQQsg4eMWItMTCkPfhUVHGkrgI0yH5sqA3EdEokVdElNWpdGGlh9WRJdRAw9hFCcbpiIJgAwfV8KemUokFgTN1E0NDoGh2GWkw1HZzFrdDdXbXkCGzOWeCBTPg5zGHQFgUUBCXEIF3hVYmM1bBUVSpRUfG9SCAiWeF+WhXYVFU8eVIY8OEIWF5YXXxAVFRUVQH9WJz9OknWRj30vFRUVFRWVcFSZmZmZamheFRUVFRUVFRUVOySdJRUVFRUVFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+          rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="code.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Myimg').click(function () {
+                $('#Mymodal').modal('show')
+            });
+        });
+    </script>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #MyForm {
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 14px;
+            background: #ececec;
+        }
+
+        #Myimg {
+            margin: 0 auto;
+            background: #ccc;
+            border: 1px solid #000;
+            padding: 9px;
+        }
+    </style>
+    <script type="text/javascript">
+        var cdg = sessionStorage.getItem("entityCode");
+        var cdgImg = '/images/' + cdg + '.jpg';
+        var country = sessionStorage.getItem("entityCountry");
+        var year = sessionStorage.getItem("entityYear");
+        document.title = ' Copa América ' + country + ' ' + year;
+        fillEntities(cdg);
+        document.close();
+    </script>
+</head>
+<body>
+<a href="index.html">
+    <button class="btn"><i class="fa fa-home"></i> Volver</button>
+</a>
+<h2>jQuery Open Bootstrap Modal on Image Click</h2>
+<img id="Myimg" src="/images/Q1129985.jpg" onload="loadImage()" alt="Open Bootstrap Modal on Image Click Using jQuery"
+     width="200px">
+<table style="width:50%; text-align: center; margin-left: 5%">
+    <tr>
+        <th>Entidad</th>
+        <th>Código</th>
+        <th>Anotaciones</th>
+        <th>Valor</th>
+        <th>CRUD</th>
+    </tr>
+    <tr>
+        <td style="vertical-align: top; text-align: left">
+            <div id="country-name"/>
+        </td>
+        <td style="vertical-align: top; text-align: left">
+            <div id="country-code"/>
+
+        <td>
+            <a title="Q172025" href="https://www.wikidata.org/wiki/Q172025">Chile national football team</a>
+        </td>
+        <td valign="top">
+            <div id="claims"/>
+        </td>
+        <td>
+            <button>Editar</button>
+            <button>Eliminar</button>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>Comentario 2</td>
+        <td>
+            <button>Editar</button>
+            <button>Eliminar</button>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>Comentario 3</td>
+        <td>
+            <button>Editar</button>
+            <button>Eliminar</button>
+        </td>
+    </tr>
+</table>
+
+<!-- .modal -->
+<div class="modal fade" id="Mymodal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">
+                    Notification
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form id="MyForm" action="" method="post">
+                    <label>Enter Name</label>
+                    <input type="text" name="name" placeholder="Enter your name"/><br>
+                    <label>Enter Email</label>
+                    <input type="email" name="email" placeholder="Enter your email"/><br>
+                    <input type="button" class="btn btn-default" name="submit" value="Submit"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
