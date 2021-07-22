@@ -5,97 +5,94 @@ async function getEntities(req) {
 }
 
 function fillEntities(req) {
-   
+
     getEntities(req).then(data => {
-        const ulLabels = document.getElementById("claims");
 
         //Obtiene el id del equipo ganador
         var winnerId = data.entities[req]['claims']['P1346'][0]['mainsnak']['datavalue']['value']['id'];
         getWinnerTeamName(winnerId);
 
-        console.log(winnerId);
+        //Obtiene la edicion de la copa america
+        var editionId = data.entities[req]['claims']['P393'][0]['mainsnak']['datavalue']['value'];
+        console.log('Edición: ' + editionId);
+        document.getElementById('champ-edition').innerHTML = editionId;
 
-        for(let attributename in data.entities[req]){
-            document.getElementById('country-code').innerHTML=req;
-            //document.getElementById('ca-winner').innerHTML=req;
+        //Obtiene el nombre del pais
+        var countryId = data.entities[req]['claims']['P17'][0]['mainsnak']['datavalue']['value']['id'];
+        getHostCountry(countryId);
 
-            //Obtiene el nombre del evento
-            if(attributename === 'labels'){
-                const labelsArray =  data.entities[req][attributename]
-                for(let label in labelsArray){
-                    if(label === 'es'){
-                        const countryName = labelsArray[label]['value'];
-                        document.getElementById('country-name').innerHTML=countryName;
-                        console.log(countryName);
-                    }
-                }
-            }
+        //Obtiene el agno
+        var year = data.entities[req]['claims']['P585'][0]['mainsnak']['datavalue']['value']['time'];
+        document.getElementById('champ-year').innerHTML = parseInt(year);
 
+        //Obtiene goleadores
+        var goleador = data.entities[req]['claims']['P3279'];
+        getGoleador(goleador);
 
-
-
-            if (attributename === 'claims'){
-                let claimsArray =  data.entities[req][attributename];
-                for(let claim in claimsArray){
-                    if(claim==='P1346'){
-                        // let winnerArray =  data.entities[req][attributename][claim];
-                        // let win = winnerArray[0];
-                        // for(const key in win){
-                        //     if(key==='mainsnak'){
-                        //         let mainsnakObj =  data.entities[req][attributename][claim][0][key];
-                        //         for(let dataval in mainsnakObj){
-                        //             if(dataval==='datavalue'){
-                        //                 let winnerValue =  data.entities[req][attributename][claim][0][key][dataval];
-                        //                 for(const wv in winnerValue){
-                        //                     if(wv === 'value'){
-                        //                         let winnerValuevalue =  data.entities[req][attributename][claim][0][key][dataval][wv];
-                        //                         for( let wvv in winnerValuevalue){
-                        //                             if(wvv === 'id'){
-                        //                                 let winnerValueid =  data.entities[req][attributename][claim][0][key][dataval][wv][wvv];
-                        //                                 console.log(JSON.stringify(winnerValueid));
-                        //                             }
-                        //                         }
-                        //
-                        //                     }
-                        //                 }
-                        //
-                        //             }
-                        //
-                        //         }
-                        //
-                        //     }
-                        // }
-
-                    }
-
-                    const liLabel = document.createElement("tr");
-                    const textLabel = document.createTextNode(claim);
-                    liLabel.appendChild(textLabel);
-                    ulLabels.appendChild(liLabel);
-                }
-            }
-        }
+        //Obtiene nombre del evento
+        getEventName(data, req);
     })
+}
+
+function getEventName(data, req) {
+    document.getElementById('country-code').innerHTML = req;
+    //Obtiene el nombre del evento
+    const eventName = data.entities[req]['labels']['es']['value'];
+    document.getElementById('event-name').innerHTML = eventName;
+    console.log('Nombre del evento: ' + eventName);
 }
 
 function getWinnerTeamName(req) {
     getEntities(req).then(data => {
-        console.log('***** WINNER TEAM *****');
-        console.log(JSON.stringify(data.entities[req]['labels']['es']['value']));
-        console.log('***************');
+        var winnerTeam = data.entities[req]['labels']['es']['value'];
+        console.log('Equipo Ganador: ' + winnerTeam);
+        document.getElementById('winner-team').innerHTML = winnerTeam;
         window.stop();
     })
 }
 
-function pass(ent, country, year){
+function getHostCountry(req) {
+    getEntities(req).then(data => {
+        var hostCountry = data.entities[req]['labels']['es']['value'];
+        console.log('Pais Anfitrion: ' + hostCountry);
+        document.getElementById('host-country').innerHTML = hostCountry;
+    })
+}
+
+function getGoleador(req) {
+    for (g in req) {
+        var goleadorId = req[g]['mainsnak']['datavalue']['value']['id'];
+        getGoalName(goleadorId);
+    }
+}
+
+/**
+ * Obtiene goleadores
+ * @param req
+ */
+function getGoalName(req) {
+    getEntities(req).then(data => {
+        const ulLabels = document.getElementById("goleadores");
+        var goleador = data.entities[req]['labels']['es']['value']
+        console.log('Goleador: ' + goleador);
+        const liLabel = document.createElement("tr");
+        const textLabel = document.createTextNode(goleador);
+        liLabel.appendChild(textLabel);
+        ulLabels.appendChild(liLabel);
+    })
+
+}
+
+
+function pass(ent, country, year) {
     console.log(ent, country, year);
     sessionStorage.setItem("entityCode", ent);
     sessionStorage.setItem("entityCountry", country);
     sessionStorage.setItem("entityYear", year);
 }
 
-function loadImage(){
+function loadImage() {
     var cdg = sessionStorage.getItem("entityCode");
-    var cdgImg = '/images/'+cdg+'.jpg';
-   $("img#Myimg").attr('src',cdgImg);
+    var cdgImg = '/images/' + cdg + '.jpg';
+    $("img#Myimg").attr('src', cdgImg);
 }
