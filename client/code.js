@@ -4,6 +4,10 @@ async function getEntities(req) {
     return await response.json();
 }
 
+/**
+ * Funcion que obtiene las anotaciones selecionadas
+ * @param req
+ */
 function fillEntities(req) {
 
     getEntities(req).then(data => {
@@ -35,6 +39,11 @@ function fillEntities(req) {
     getCustomizedAnnotations(req);
 }
 
+/**
+ * Obtiene el nombre del evento de la copa america
+ * @param data
+ * @param req
+ */
 function getEventName(data, req) {
     document.getElementById('country-code').innerHTML = req;
     //Obtiene el nombre del evento
@@ -43,6 +52,10 @@ function getEventName(data, req) {
     console.log('Nombre del evento: ' + eventName);
 }
 
+/**
+ * Funcion que obtiene al equipo ganador
+ * @param req
+ */
 function getWinnerTeamName(req) {
     getEntities(req).then(data => {
         var winnerTeam = data.entities[req]['labels']['es']['value'];
@@ -52,6 +65,10 @@ function getWinnerTeamName(req) {
     })
 }
 
+/**
+ * Obtiene al país anfitrion de la copa
+ * @param req
+ */
 function getHostCountry(req) {
     getEntities(req).then(data => {
         var hostCountry = data.entities[req]['labels']['es']['value'];
@@ -60,6 +77,10 @@ function getHostCountry(req) {
     })
 }
 
+/**
+ * Obtiene goleador de la copa seleccionada
+ * @param req
+ */
 function getGoleador(req) {
     for (g in req) {
         var goleadorId = req[g]['mainsnak']['datavalue']['value']['id'];
@@ -79,6 +100,8 @@ function getCustomizedAnnotations(req) {
         for(d in data) {
 
             const propertyname = data[d]['annotationproperty'];
+            const propertyValue = data[d]['annotationvalue'];
+
             const nameLabels = document.getElementById("custom-propertyname");
             const trLabel = document.createElement("tr");
             const textLabel = document.createTextNode(propertyname);
@@ -86,7 +109,6 @@ function getCustomizedAnnotations(req) {
             nameLabels.appendChild(trLabel);
 
 
-            const propertyValue = data[d]['annotationvalue'];
             const valueLabels = document.getElementById("custom-propertyvalue");
             const trLabelV = document.createElement("tr");
             const textLabelV = document.createTextNode(propertyValue);
@@ -133,28 +155,31 @@ function pass(ent, country, year) {
     sessionStorage.setItem("entityYear", year);
 }
 
+/**
+ * Modifica la imagen segun la copa que se elija
+ */
 function loadImage() {
     var cdg = sessionStorage.getItem("entityCode");
     var cdgImg = '/images/' + cdg + '.jpg';
     $("img#Myimg").attr('src', cdgImg);
 }
 
-function saveAnnotation(){
-    var payload = {
-        a: 1,
-        b: 2
-    };
-
-    var data = new FormData();
-    data.append( "json", JSON.stringify( payload ) );
-
+/**
+ * Guarda la anotacion
+ */
+function saveAnnotation() {
+    const entityCode = sessionStorage.getItem("entityCode");
+    const annotationProperty = document.getElementById("_annotationProperty").value;
+    const annotationValue = document.getElementById("_annotationValue").value;
+    const data = {annotationProperty, annotationValue, entityCode};
     console.log(data);
-
-/*    fetch("/echo/json/",
-        {
-            method: "POST",
-            body: data
-        })
-        .then(function(res){ return res.json(); })
-        .then(function(data){ alert( JSON.stringify( data ) ) })*/
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    fetch('/api/entities/annotations', options);
+    return false;
 }

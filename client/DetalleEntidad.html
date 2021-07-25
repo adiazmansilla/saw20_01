@@ -28,22 +28,7 @@
         fillEntities(cdg);
     </script>
     <script>
-        function myFunction() {
-            const annotationProperty = 'Hola';
-            const annotationValue = 'Chao';
-            const entityCode = sessionStorage.getItem("entityCode");
-        console.log('HolaMundo');
-        const data = {annotationProperty,annotationValue, entityCode};
-        const options ={
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-        fetch('/api/entities/annotations', options);
-        return false;
-        }
+
     </script>
 </head>
 <body>
@@ -69,7 +54,6 @@
             <th style="margin-left: 2%">Código</th>
             <th style="margin-left: 2%">Anotaciones</th>
             <th style="margin-left: 2%">Valor</th>
-            <th style="margin-left: 2%">CRUD</th>
         </tr>
         <tr>
             <td style="vertical-align: top; text-align: left; margin-left: 2%">
@@ -123,21 +107,21 @@
         <h1 class="text text-success text-center ">
             Anotaciones personalizadas
         </h1>
-        <table class="table-striped border-success">
+        <table  style="width:50%; text-align: center; margin-left: 5%">
             <thead>
             <tr>
-                <th>
+                <th style="text-align: left; margin-left: 2%">
                     Anotación
                 </th>
-                <th>
+                <th style="text-align: left; margin-left: 2%">
                     Valor
                 </th>
             </tr>
             <tr>
-                <td>
+                <td style="text-align: left; margin-left: 2%">
                     <div id="custom-propertyname"></div>
                 </td>
-                <td>
+                <td style="text-align: left; margin-left: 2%">
                     <div id="custom-propertyvalue"></div>
                 </td>
             </tr>
@@ -160,7 +144,7 @@
                            placeholder="Propiedad"/><br>
                     <label for="_annotationValue">Valor Anotación</label>
                     <input type="text" id="_annotationValue" name="annotationValue" placeholder="Valor"/><br>
-                    <button id="btn" type="submit" onclick="return myFunction()">Agregar</button>
+                    <button id="btn" type="submit" onclick="return saveAnnotation()" >Agregar</button>
                 </form>
             </div>
             <div class="modal-footer">
