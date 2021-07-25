@@ -190,33 +190,32 @@ function deleteAnnotation() {
 }
 
 function addRow(annotationProperty, annotationValue) {
-    const nameLabels = document.getElementById("custom-propertyname");
-    const trLabel = document.createElement("tr");
+
+
+    var tabla =document.getElementById('tblCustom');
+    const trCreate = document.createElement("tr");
+    const trLabel = document.createElement("td");
     const textLabel = document.createTextNode(annotationProperty);
     trLabel.appendChild(textLabel);
-    nameLabels.appendChild(trLabel);
+    trCreate.appendChild(trLabel);
 
-
-    const valueLabels = document.getElementById("custom-propertyvalue");
-    const trLabelV = document.createElement("tr");
+    const trLabelV = document.createElement("td");
     const textLabelV = document.createTextNode(annotationValue);
     trLabelV.appendChild(textLabelV);
-    valueLabels.appendChild(trLabelV);
+    trCreate.appendChild(trLabelV);
 
 
     // get the element you want to add the button to
-    var myDiv = document.getElementById("btn-edit");
-    const trButton = document.createElement("tr");
+    const trButton = document.createElement("td");
     // create the button object and add the text to it
     var button = document.createElement("BUTTON");
     button.innerHTML = "Editar";
 
     // add the button to the div
     trButton.appendChild(button);
-    myDiv.appendChild(trButton);
+    trCreate.appendChild(trButton);
 
     // get the element you want to add the button to
-    var myDivDel = document.getElementById("btn-del");
     const trButtonDel = document.createElement("tr");
     // create the button object and add the text to it
     var buttonDel = document.createElement("BUTTON");
@@ -224,5 +223,7 @@ function addRow(annotationProperty, annotationValue) {
 
     // add the button to the div
     trButtonDel.appendChild(buttonDel);
-    myDivDel.appendChild(trButtonDel);
+    trCreate.appendChild(trButtonDel);
+
+    tabla.appendChild(trCreate);
 }
