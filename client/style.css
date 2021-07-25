@@ -81,3 +81,7 @@ body {
     width: 30%;
     border: 3px solid green;
 }
+
+table thead, table tfoot {
+    width: calc(100% - 17px);
+}
