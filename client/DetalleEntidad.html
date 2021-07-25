@@ -5,109 +5,162 @@
           rel="icon" type="image/x-icon"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="code.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#Myimg').click(function () {
-                $('#Mymodal').modal('show')
-            });
-        });
-    </script>
-    <style>
 
-    </style>
     <script type="text/javascript">
         var cdg = sessionStorage.getItem("entityCode");
-        var cdgImg = '/images/' + cdg + '.jpg';
         var country = sessionStorage.getItem("entityCountry");
         var year = sessionStorage.getItem("entityYear");
         document.title = ' Copa América ' + country + ' ' + year;
         fillEntities(cdg);
     </script>
+    <script>
+        function myFunction() {
+            const annotationProperty = 'Hola';
+            const annotationValue = 'Chao';
+            const entityCode = sessionStorage.getItem("entityCode");
+        console.log('HolaMundo');
+        const data = {annotationProperty,annotationValue, entityCode};
+        const options ={
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        fetch('/api/entities/annotations', options);
+        return false;
+        }
+    </script>
 </head>
 <body>
-<a href="index.html">
-    <button class="btn"><i class="fa fa-home"></i> Volver</button>
-</a>
+<br>
+<a class="btn btn-primary" style="margin-left: 5%" href="index.html" role="button"><i class="fa fa-home"></i> Volver</a>
 <br>
 <br>
 
-<div style="text-align: center"><img id="Myimg" src="/images/Q1129985.jpg" onload="loadImage()" alt="open Modal" width="20%" height="20%"/></div>
+<div style="text-align: center"><img id="Myimg" src="/images/Q1129985.jpg" onload="loadImage()" alt="open Modal"
+                                     width="20%" height="20%"/></div>
+<br>
+<div style="text-align: center">
+    <button type="button" id="btnAddAnnotation" class="btn btn-primary" data-toggle="modal" data-target="#Mymodal">
+        Agregar Anotación
+    </button>
+</div>
 <br>
 <br>
-<table style="width:50%; text-align: center; margin-left: 5%">
-    <tr>
-        <th style="margin-left: 2%">Entidad</th>
-        <th style="margin-left: 2%">Código</th>
-        <th style="margin-left: 2%">Anotaciones</th>
-        <th style="margin-left: 2%">Valor</th>
-        <th style="margin-left: 2%">CRUD</th>
-    </tr>
-    <tr>
-        <td style="vertical-align: top; text-align: left; margin-left: 2%">
-            <div id="event-name"/>
-        </td>
-        <td style="vertical-align: top; text-align: left; margin-left: 2%">
-            <div id="country-code"/>
-        <td style="text-align: left; margin-left: 2%">País Anfitrión: </td>
-        <td style="text-align: left; margin-left: 2%">
-            <div id="host-country"/>
-        </td>
-        <td style="text-align: left; margin-left: 2%">
-        </td>
-    </tr>
-    <tr>
-        <td style="text-align: left; margin-left: 2%"></td>
-        <td style="text-align: left; margin-left: 2%"></td>
-        <td style="text-align: left; margin-left: 2%">Equipo ganador: </td>
-        <td style="text-align: left; margin-left: 2%"> <div id="winner-team"/> </td>
-    </tr>
-    <tr>
-        <td style="text-align: left; margin-left: 2%"></td>
-        <td style="text-align: left; margin-left: 2%"></td>
-        <td style="text-align: left; margin-left: 2%">Año: </td>
-        <td style="text-align: left; margin-left: 2%">
-            <div id="champ-year"/>
-        </td>
-    </tr>
-    <tr>
-        <td style="text-align: left; margin-left: 2%"></td>
-        <td style="text-align: left; margin-left: 2%"></td>
-        <td style="text-align: left; margin-left: 2%">Edición N°: </td>
-        <td style="text-align: left; margin-left: 2%">
-            <div id="champ-edition"/>
-        </td>
-    </tr>
-    <tr>
-        <td style="text-align: left; margin-left: 2%"></td>
-        <td style="text-align: left; margin-left: 2%"></td>
-        <td style="vertical-align: top; text-align: left; margin-left: 2%">Goleador: </td>
-        <td style="text-align: left; margin-left: 2%">
-            <div id="goleadores"/>
-        </td>
-    </tr>
-</table>
-
-<!-- .modal -->
+<form id="table">
+    <table style="width:50%; text-align: center; margin-left: 5%">
+        <tr>
+            <th style="margin-left: 2%">Entidad</th>
+            <th style="margin-left: 2%">Código</th>
+            <th style="margin-left: 2%">Anotaciones</th>
+            <th style="margin-left: 2%">Valor</th>
+            <th style="margin-left: 2%">CRUD</th>
+        </tr>
+        <tr>
+            <td style="vertical-align: top; text-align: left; margin-left: 2%">
+                <div id="event-name"/>
+            </td>
+            <td style="vertical-align: top; text-align: left; margin-left: 2%">
+                <div id="country-code"/>
+            <td style="text-align: left; margin-left: 2%">País Anfitrión:</td>
+            <td style="text-align: left; margin-left: 2%">
+                <div id="host-country"/>
+            </td>
+            <td style="text-align: left; margin-left: 2%">
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left; margin-left: 2%"></td>
+            <td style="text-align: left; margin-left: 2%"></td>
+            <td style="text-align: left; margin-left: 2%">Equipo ganador:</td>
+            <td style="text-align: left; margin-left: 2%">
+                <div id="winner-team"/>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left; margin-left: 2%"></td>
+            <td style="text-align: left; margin-left: 2%"></td>
+            <td style="text-align: left; margin-left: 2%">Año:</td>
+            <td style="text-align: left; margin-left: 2%">
+                <div id="champ-year"/>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left; margin-left: 2%"></td>
+            <td style="text-align: left; margin-left: 2%"></td>
+            <td style="text-align: left; margin-left: 2%">Edición N°:</td>
+            <td style="text-align: left; margin-left: 2%">
+                <div id="champ-edition"/>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left; margin-left: 2%"></td>
+            <td style="text-align: left; margin-left: 2%"></td>
+            <td style="vertical-align: top; text-align: left; margin-left: 2%">Goleador:</td>
+            <td style="text-align: left; margin-left: 2%">
+                <div id="goleadores"/>
+            </td>
+        </tr>
+    </table>
+</form>
+<form id="customDataForm">
+    <div class="container">
+        <h1 class="text text-success text-center ">
+            Anotaciones personalizadas
+        </h1>
+        <table class="table-striped border-success">
+            <thead>
+            <tr>
+                <th>
+                    Anotación
+                </th>
+                <th>
+                    Valor
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <div id="custom-propertyname"></div>
+                </td>
+                <td>
+                    <div id="custom-propertyvalue"></div>
+                </td>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</form>
 <div class="modal fade" id="Mymodal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-                <h4 class="modal-title">
-                    Notification
+                <h4 class="modal-title" style="text-align: left">
+                    Agregar Anotación
                 </h4>
             </div>
             <div class="modal-body">
-                <form id="MyForm" action="" method="post">
-                    <label>Enter Name</label>
-                    <input type="text" name="name" placeholder="Enter your name"/><br>
-                    <label>Enter Email</label>
-                    <input type="email" name="email" placeholder="Enter your email"/><br>
-                    <input type="button" class="btn btn-default" name="submit" value="Submit"/>
+                <form id="MyForm">
+                    <label for="_annotationProperty">Nombre Anotación</label>
+                    <input id="_annotationProperty" type="text" name="annotationProperty"
+                           placeholder="Propiedad"/><br>
+                    <label for="_annotationValue">Valor Anotación</label>
+                    <input type="text" id="_annotationValue" name="annotationValue" placeholder="Valor"/><br>
+                    <button id="btn" type="submit" onclick="return myFunction()">Agregar</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -116,6 +169,6 @@
         </div>
     </div>
 </div>
-
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
 </body>
 </html>

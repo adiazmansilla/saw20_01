@@ -32,6 +32,7 @@ function fillEntities(req) {
         //Obtiene nombre del evento
         getEventName(data, req);
     })
+    getCustomizedAnnotations(req);
 }
 
 function getEventName(data, req) {
@@ -67,6 +68,42 @@ function getGoleador(req) {
 }
 
 /**
+ * Obtiene los datos almacenados en bd a traves de la api en nodejs
+ * @param req
+ */
+function getCustomizedAnnotations(req) {
+
+
+    getEntitiesInDB(req).then( data=>
+    {
+        for(d in data) {
+
+            const propertyname = data[d]['annotationproperty'];
+            const nameLabels = document.getElementById("custom-propertyname");
+            const trLabel = document.createElement("tr");
+            const textLabel = document.createTextNode(propertyname);
+            trLabel.appendChild(textLabel);
+            nameLabels.appendChild(trLabel);
+
+
+            const propertyValue = data[d]['annotationvalue'];
+            const valueLabels = document.getElementById("custom-propertyvalue");
+            const trLabelV = document.createElement("tr");
+            const textLabelV = document.createTextNode(propertyValue);
+            trLabelV.appendChild(textLabelV);
+            valueLabels.appendChild(trLabelV);
+        }
+
+    })
+}
+
+async function getEntitiesInDB(req) {
+    let myRequest = new Request(`/api/entities/${req}/annotations`);
+    const response = await fetch(myRequest);
+    return await response.json();
+}
+
+/**
  * Obtiene goleadores
  * @param req
  */
@@ -83,7 +120,12 @@ function getGoalName(req) {
 
 }
 
-
+/**
+ * Guarda variables en la sessionStorage
+ * @param ent
+ * @param country
+ * @param year
+ */
 function pass(ent, country, year) {
     console.log(ent, country, year);
     sessionStorage.setItem("entityCode", ent);
@@ -95,4 +137,24 @@ function loadImage() {
     var cdg = sessionStorage.getItem("entityCode");
     var cdgImg = '/images/' + cdg + '.jpg';
     $("img#Myimg").attr('src', cdgImg);
+}
+
+function saveAnnotation(){
+    var payload = {
+        a: 1,
+        b: 2
+    };
+
+    var data = new FormData();
+    data.append( "json", JSON.stringify( payload ) );
+
+    console.log(data);
+
+/*    fetch("/echo/json/",
+        {
+            method: "POST",
+            body: data
+        })
+        .then(function(res){ return res.json(); })
+        .then(function(data){ alert( JSON.stringify( data ) ) })*/
 }
