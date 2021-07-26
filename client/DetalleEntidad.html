@@ -41,11 +41,8 @@
                                      width="20%" height="20%"/></div>
 <br>
 <div style="text-align: center">
-    <button type="button" id="btnAddAnnotation" class="btn btn-primary" data-toggle="modal" data-target="#Mymodal">
+    <button type="button" id="btnAddAnnotation" class="btn btn-primary" data-toggle="modal" data-target="#AddEntityModal">
         Agregar Anotación
-    </button>
-    <button type="submit" id="btnDeleteAnnotation" onclick="return deleteAnnotation()" >
-        Eliminar Anotación
     </button>
 </div>
 <br>
@@ -109,7 +106,8 @@
     <h1 class="text text-success text-center ">
         Anotaciones personalizadas
     </h1>
-    <table id="tblCustom" style="width:50%; text-align: center; margin-left: 5%; vertical-align: center; margin-bottom: 2px">
+    <table id="tblCustom"
+           style="width:50%; text-align: center; margin-left: 5%; vertical-align: center; margin-bottom: 2px">
         <thead>
         <tr>
             <th style="text-align: left; margin-left: 2%">
@@ -127,34 +125,37 @@
         </tr>
         </thead>
         <tr>
-            
+
         </tr>
     </table>
 </div>
-<div class="modal fade" id="Mymodal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" style="text-align: left">
-                    Agregar Anotación
-                </h4>
-            </div>
-            <div class="modal-body">
-                <form id="MyForm">
+<form id="MyForm">
+    <div class="modal fade " id="AddEntityModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="text-align: left">
+                        Agregar Anotación
+                    </h4>
+                </div>
+                <div class="modal-body">
+
                     <label for="_annotationProperty">Nombre Anotación</label>
                     <input id="_annotationProperty" type="text" name="annotationProperty"
                            placeholder="Propiedad"/><br>
                     <label for="_annotationValue">Valor Anotación</label>
                     <input type="text" id="_annotationValue" name="annotationValue" placeholder="Valor"/><br>
+
+                </div>
+                <div class="modal-footer">
                     <button id="btn" type="submit" onclick="return saveAnnotation()">Agregar</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</form>
+
 <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
 </body>
 </html>

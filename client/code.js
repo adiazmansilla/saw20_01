@@ -18,7 +18,6 @@ function fillEntities(req) {
 
         //Obtiene la edicion de la copa america
         var editionId = data.entities[req]['claims']['P393'][0]['mainsnak']['datavalue']['value'];
-        console.log('Edición: ' + editionId);
         document.getElementById('champ-edition').innerHTML = editionId;
 
         //Obtiene el nombre del pais
@@ -49,7 +48,6 @@ function getEventName(data, req) {
     //Obtiene el nombre del evento
     const eventName = data.entities[req]['labels']['es']['value'];
     document.getElementById('event-name').innerHTML = eventName;
-    console.log('Nombre del evento: ' + eventName);
 }
 
 /**
@@ -59,7 +57,6 @@ function getEventName(data, req) {
 function getWinnerTeamName(req) {
     getEntities(req).then(data => {
         var winnerTeam = data.entities[req]['labels']['es']['value'];
-        console.log('Equipo Ganador: ' + winnerTeam);
         document.getElementById('winner-team').innerHTML = winnerTeam;
         window.stop();
     })
@@ -72,7 +69,6 @@ function getWinnerTeamName(req) {
 function getHostCountry(req) {
     getEntities(req).then(data => {
         var hostCountry = data.entities[req]['labels']['es']['value'];
-        console.log('Pais Anfitrion: ' + hostCountry);
         document.getElementById('host-country').innerHTML = hostCountry;
     })
 }
@@ -120,7 +116,6 @@ function getGoalName(req) {
     getEntities(req).then(data => {
         const ulLabels = document.getElementById("goleadores");
         var goleador = data.entities[req]['labels']['es']['value']
-        console.log('Goleador: ' + goleador);
         const liLabel = document.createElement("tr");
         const textLabel = document.createTextNode(goleador);
         liLabel.appendChild(textLabel);
@@ -136,7 +131,6 @@ function getGoalName(req) {
  * @param year
  */
 function pass(ent, country, year) {
-    console.log(ent, country, year);
     sessionStorage.setItem("entityCode", ent);
     sessionStorage.setItem("entityCountry", country);
     sessionStorage.setItem("entityYear", year);
@@ -159,7 +153,6 @@ function saveAnnotation() {
     const annotationProperty = document.getElementById("_annotationProperty").value;
     const annotationValue = document.getElementById("_annotationValue").value;
     const data = {annotationProperty, annotationValue, entityCode};
-    console.log(data);
     addRow(annotationProperty, annotationValue);
     const options = {
         method: 'POST',
@@ -169,16 +162,16 @@ function saveAnnotation() {
         }
     }
     fetch('/api/entities/annotations', options);
+
     return false;
 }
 
 /**
  * Elimina una anotacion
  */
-function deleteAnnotation() {
+function deleteAnnotation(annotationProperty) {
     const entityCode = sessionStorage.getItem("entityCode");
-    //const annotationProperty = document.getElementById("_annotationProperty").value;
-    const annotationProperty = 'Hola';
+    console.log('deleting... '+annotationProperty);
     const options = {
         method: 'DELETE',
         headers: {
@@ -186,6 +179,7 @@ function deleteAnnotation() {
         }
     }
     fetch(`/api/entities/${entityCode}/annotations/${annotationProperty}`, options);
+    window.alert('Anotación eliminada con éxito');
     return false;
 }
 
@@ -220,6 +214,9 @@ function addRow(annotationProperty, annotationValue) {
     // create the button object and add the text to it
     var buttonDel = document.createElement("BUTTON");
     buttonDel.innerHTML = "Eliminar";
+    buttonDel.onclick = function(){
+        deleteAnnotation(annotationProperty);
+    }
 
     // add the button to the div
     trButtonDel.appendChild(buttonDel);
