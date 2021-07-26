@@ -146,7 +146,7 @@ function loadImage() {
 }
 
 /**
- * Guarda la anotacion
+ * Guarda una nueva anotacion
  */
 function saveAnnotation() {
     const entityCode = sessionStorage.getItem("entityCode");
@@ -167,11 +167,33 @@ function saveAnnotation() {
 }
 
 /**
+ * Guarda los cambios en una anotacion
+ * @returns {boolean}
+ * @constructor
+ */
+function edAnnotation() {
+    const entityCode = sessionStorage.getItem("entityCode");
+    const annotationProperty = document.getElementById("idPropertyHolder").textContent;
+    const annotationValue = document.getElementById("idValueHolder").value;
+    const data = {annotationProperty, annotationValue, entityCode};
+    console.log(data);
+    const options = {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    fetch('/api/entities/annotations', options);
+    return false;
+}
+
+/**
  * Elimina una anotacion
  */
 function deleteAnnotation(annotationProperty) {
     const entityCode = sessionStorage.getItem("entityCode");
-    console.log('deleting... '+annotationProperty);
+    console.log('deleting... ' + annotationProperty);
     const options = {
         method: 'DELETE',
         headers: {
@@ -186,7 +208,7 @@ function deleteAnnotation(annotationProperty) {
 function addRow(annotationProperty, annotationValue) {
 
 
-    var tabla =document.getElementById('tblCustom');
+    var tabla = document.getElementById('tblCustom');
     const trCreate = document.createElement("tr");
     const trLabel = document.createElement("td");
     const textLabel = document.createTextNode(annotationProperty);
@@ -202,11 +224,17 @@ function addRow(annotationProperty, annotationValue) {
     // get the element you want to add the button to
     const trButton = document.createElement("td");
     // create the button object and add the text to it
-    var button = document.createElement("BUTTON");
-    button.innerHTML = "Editar";
+    var btnEdit = document.createElement("BUTTON");
+    btnEdit.innerHTML = "Editar";
+    btnEdit.onclick = function () {
+        $('#modalEdit').modal('show');
+        document.getElementById('idPropertyHolder').innerHTML = annotationProperty;
+        idValueHolder.value = annotationValue;
+       // document.getElementById('idValueHolder').innerHTML.val = annotationValue;
+    };
 
     // add the button to the div
-    trButton.appendChild(button);
+    trButton.appendChild(btnEdit);
     trCreate.appendChild(trButton);
 
     // get the element you want to add the button to
@@ -214,7 +242,7 @@ function addRow(annotationProperty, annotationValue) {
     // create the button object and add the text to it
     var buttonDel = document.createElement("BUTTON");
     buttonDel.innerHTML = "Eliminar";
-    buttonDel.onclick = function(){
+    buttonDel.onclick = function () {
         deleteAnnotation(annotationProperty);
     }
 

@@ -129,7 +129,7 @@
         </tr>
     </table>
 </div>
-<form id="MyForm">
+<form id="frmAdd">
     <div class="modal fade " id="AddEntityModal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -149,6 +149,31 @@
                 </div>
                 <div class="modal-footer">
                     <button id="btn" type="submit" onclick="return saveAnnotation()">Agregar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form id="frmEdit">
+    <div class="modal fade " id="modalEdit">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="text-align: left">
+                        Agregar Anotación
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <label for="idPropertyHolder">Nombre Anotación: </label>
+                    <label id="idPropertyHolder"></label>
+                    <br>
+                    <label for="idValueHolder">Valor Anotación: </label>
+                    <input type="text" id="idValueHolder"></input>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnEdit" type="submit" onclick="return edAnnotation()">Editar</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
