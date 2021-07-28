@@ -153,7 +153,6 @@ function saveAnnotation() {
     const annotationProperty = document.getElementById("_annotationProperty").value;
     const annotationValue = document.getElementById("_annotationValue").value;
     const data = {annotationProperty, annotationValue, entityCode};
-    addRow(annotationProperty, annotationValue);
     const options = {
         method: 'POST',
         body: JSON.stringify(data),
@@ -161,8 +160,16 @@ function saveAnnotation() {
             'Content-Type': 'application/json'
         }
     }
-    fetch('/api/entities/annotations', options);
-
+    fetch('/api/entities/annotations', options)
+        .then((response) => {
+            if (response.ok) {
+                $('#AddEntityModal').modal('hide');
+                addRow(annotationProperty, annotationValue);
+            } else {
+                $('#AddEntityModal').modal('hide');
+                window.alert('Ocurrió un error al agregar la anotación');
+            }
+        });
     return false;
 }
 
@@ -184,7 +191,14 @@ function edAnnotation() {
             'Content-Type': 'application/json'
         }
     }
-    fetch('/api/entities/annotations', options);
+    fetch('/api/entities/annotations', options).then((response) => {
+        if (response.ok) {
+            $('#modalEdit').modal('hide');
+        } else {
+            $('#modalEdit').modal('hide');
+            window.alert('Ocurrió un error al agregar la anotación');
+        }
+    });
     return false;
 }
 
@@ -200,8 +214,14 @@ function deleteAnnotation(annotationProperty) {
             'Content-Type': 'application/json'
         }
     }
-    fetch(`/api/entities/${entityCode}/annotations/${annotationProperty}`, options);
-    window.alert('Anotación eliminada con éxito');
+    fetch(`/api/entities/${entityCode}/annotations/${annotationProperty}`, options)
+        .then((response) => {
+            if (response.ok) {
+                window.alert('Anotación eliminada con éxito');
+            } else {
+                throw new Error('Ocurrió un error al eliminar la anotación');
+            }
+        });
     return false;
 }
 
@@ -222,33 +242,36 @@ function addRow(annotationProperty, annotationValue) {
 
 
     // get the element you want to add the button to
-    const trButton = document.createElement("td");
+    const tdButtonEdit = document.createElement("td");
+    tdButtonEdit.className="btnp"
     // create the button object and add the text to it
-    var btnEdit = document.createElement("BUTTON");
-    btnEdit.innerHTML = "Editar";
+    var btnEdit = document.createElement("button");
+    btnEdit.className = "btn btn-success glyphicon glyphicon-pencil";
+   // btnEdit.innerHTML = "Editar";
     btnEdit.onclick = function () {
         $('#modalEdit').modal('show');
         document.getElementById('idPropertyHolder').innerHTML = annotationProperty;
         idValueHolder.value = annotationValue;
-       // document.getElementById('idValueHolder').innerHTML.val = annotationValue;
     };
 
     // add the button to the div
-    trButton.appendChild(btnEdit);
-    trCreate.appendChild(trButton);
+    tdButtonEdit.appendChild(btnEdit);
+    trCreate.appendChild(tdButtonEdit);
 
     // get the element you want to add the button to
-    const trButtonDel = document.createElement("tr");
+    const tdButtonDel = document.createElement("td");
+    tdButtonDel.className="btnp";
     // create the button object and add the text to it
-    var buttonDel = document.createElement("BUTTON");
-    buttonDel.innerHTML = "Eliminar";
+    var buttonDel = document.createElement("button");
+    buttonDel.className = "btn btn-danger fa fa-trash";
+//    buttonDel.innerHTML = " Eliminar";
     buttonDel.onclick = function () {
         deleteAnnotation(annotationProperty);
     }
 
     // add the button to the div
-    trButtonDel.appendChild(buttonDel);
-    trCreate.appendChild(trButtonDel);
+    tdButtonDel.appendChild(buttonDel);
+    trCreate.appendChild(tdButtonDel);
 
     tabla.appendChild(trCreate);
 }

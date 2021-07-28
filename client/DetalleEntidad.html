@@ -1,23 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAZFwUAz8vCAHJlUgDg4uIA08vLANTNyAAgHQ4A/f38AOnr6wA9NisA6u3xADw5KwArJhcAl4Z1ACspFwDb3d0A4eLjADIvIADk5uYA/vv3ACMjDwD9/f0A6OrpAOfr7AD+/f0A//39ANnW0gDa2dIAx8O+AOzu7AC0sKoA2tjYAO3v7wAWFgQAFxYEAPLv7wDf3dUA3tzbABcXBwDg3NsALiwYAN/h4QDh4eEA0crKANLKygAfGhAA1M3KAPj4+ADi5ucA5+jkANXT0wDo6uoAEhICAOzu7QDc19YAzMO/ANzc3ADe3NwAGhcIAOLd3wDh4N8A3+HiAEw+KgDl5eUA+vz8APz8/ADn6egA/vz8AFBINgDa09QAEA8DAFNMOQDKxMMAzMPAAI+OhwDe390A3uDgANHJyQBzaVkA+/z9AP/7+gDa0c8A6enpAFRINwDa1tUA6u7vANvW1QDg2dUA3dvbAOLk5AA1MB4A1c3NANXQzQCrrKIA+/v7AOXp6gD9+/sA5+nqAOvu8ABPTEQAU09EAEM9KgDd3twALysZAN/f3wDQyMgALi0fAOHf3wDh4OIAHRwIANTLyADm5+UA09HRAObo6AD++/wA6ejoAP3+/ABPSTwAiIWBALOtpgDp7e4AKCMUAJaDcgDc2toA4t7dAOHj4wDRzskA0szMANTMzADUz8wA+vr6ANbPzAD8+voA5ujpAN7Z2ADd2tsAFhUHAN/a2wC3trAA3t7eAODe3gBaUk8A6OPbAOXn5wDl6eQA5+fnAEtIOwDn6+oA2NPQAP7+/gDo7O0AEBACABEQAgAnJRMA2tXWANvZ2QDKxL8AeHVvAN7c2QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFRUVFRUVcp6KXoIVFRUVFRUVFUEjSHkiIToUm0MVFRUVFQcsgINcES0LZHs5YBUVFRV3LFsuNppYODlLZnsZFRWOTQQsg4eMWItMTCkPfhUVHGkrgI0yH5sqA3EdEokVdElNWpdGGlh9WRJdRAw9hFCcbpiIJgAwfV8KemUokFgTN1E0NDoGh2GWkw1HZzFrdDdXbXkCGzOWeCBTPg5zGHQFgUUBCXEIF3hVYmM1bBUVSpRUfG9SCAiWeF+WhXYVFU8eVIY8OEIWF5YXXxAVFRUVQH9WJz9OknWRj30vFRUVFRWVcFSZmZmZamheFRUVFRUVFRUVOySdJRUVFRUVFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
-          rel="icon" type="image/x-icon"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          crossorigin="anonymous">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAZFwUAz8vCAHJlUgDg4uIA08vLANTNyAAgHQ4A/f38AOnr6wA9NisA6u3xADw5KwArJhcAl4Z1ACspFwDb3d0A4eLjADIvIADk5uYA/vv3ACMjDwD9/f0A6OrpAOfr7AD+/f0A//39ANnW0gDa2dIAx8O+AOzu7AC0sKoA2tjYAO3v7wAWFgQAFxYEAPLv7wDf3dUA3tzbABcXBwDg3NsALiwYAN/h4QDh4eEA0crKANLKygAfGhAA1M3KAPj4+ADi5ucA5+jkANXT0wDo6uoAEhICAOzu7QDc19YAzMO/ANzc3ADe3NwAGhcIAOLd3wDh4N8A3+HiAEw+KgDl5eUA+vz8APz8/ADn6egA/vz8AFBINgDa09QAEA8DAFNMOQDKxMMAzMPAAI+OhwDe390A3uDgANHJyQBzaVkA+/z9AP/7+gDa0c8A6enpAFRINwDa1tUA6u7vANvW1QDg2dUA3dvbAOLk5AA1MB4A1c3NANXQzQCrrKIA+/v7AOXp6gD9+/sA5+nqAOvu8ABPTEQAU09EAEM9KgDd3twALysZAN/f3wDQyMgALi0fAOHf3wDh4OIAHRwIANTLyADm5+UA09HRAObo6AD++/wA6ejoAP3+/ABPSTwAiIWBALOtpgDp7e4AKCMUAJaDcgDc2toA4t7dAOHj4wDRzskA0szMANTMzADUz8wA+vr6ANbPzAD8+voA5ujpAN7Z2ADd2tsAFhUHAN/a2wC3trAA3t7eAODe3gBaUk8A6OPbAOXn5wDl6eQA5+fnAEtIOwDn6+oA2NPQAP7+/gDo7O0AEBACABEQAgAnJRMA2tXWANvZ2QDKxL8AeHVvAN7c2QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFRUVFRUVcp6KXoIVFRUVFRUVFUEjSHkiIToUm0MVFRUVFQcsgINcES0LZHs5YBUVFRV3LFsuNppYODlLZnsZFRWOTQQsg4eMWItMTCkPfhUVHGkrgI0yH5sqA3EdEokVdElNWpdGGlh9WRJdRAw9hFCcbpiIJgAwfV8KemUokFgTN1E0NDoGh2GWkw1HZzFrdDdXbXkCGzOWeCBTPg5zGHQFgUUBCXEIF3hVYmM1bBUVSpRUfG9SCAiWeF+WhXYVFU8eVIY8OEIWF5YXXxAVFRUVQH9WJz9OknWRj30vFRUVFRWVcFSZmZmZamheFRUVFRUVFRUVOySdJRUVFRUVFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="/DetalleEntidad.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
     <script type="text/javascript" src="code.js"></script>
 
     <script type="text/javascript">
@@ -26,9 +23,6 @@
         var year = sessionStorage.getItem("entityYear");
         document.title = ' Copa América ' + country + ' ' + year;
         fillEntities(cdg);
-    </script>
-    <script>
-
     </script>
 </head>
 <body>
@@ -41,85 +35,83 @@
                                      width="20%" height="20%"/></div>
 <br>
 <div style="text-align: center">
-    <button type="button" id="btnAddAnnotation" class="btn btn-primary" data-toggle="modal" data-target="#AddEntityModal">
+    <button type="button" id="btnAddAnnotation" class="btn btn-primary" data-toggle="modal"
+            data-target="#AddEntityModal">
         Agregar Anotación
     </button>
 </div>
 <br>
 <br>
-<form id="table">
-    <table style="width:50%; text-align: center; margin-left: 5%">
-        <tr>
-            <th style="margin-left: 2%">Entidad</th>
-            <th style="margin-left: 2%">Código</th>
-            <th style="margin-left: 2%">Anotaciones</th>
-            <th style="margin-left: 2%">Valor</th>
-        </tr>
-        <tr>
-            <td style="vertical-align: top; text-align: left; margin-left: 2%">
-                <div id="event-name"/>
-            </td>
-            <td style="vertical-align: top; text-align: left; margin-left: 2%">
-                <div id="country-code"/>
-            <td style="text-align: left; margin-left: 2%">País Anfitrión:</td>
-            <td style="text-align: left; margin-left: 2%">
-                <div id="host-country"/>
-            </td>
-            <td style="text-align: left; margin-left: 2%">
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: left; margin-left: 2%"></td>
-            <td style="text-align: left; margin-left: 2%"></td>
-            <td style="text-align: left; margin-left: 2%">Equipo ganador:</td>
-            <td style="text-align: left; margin-left: 2%">
-                <div id="winner-team"/>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: left; margin-left: 2%"></td>
-            <td style="text-align: left; margin-left: 2%"></td>
-            <td style="text-align: left; margin-left: 2%">Año:</td>
-            <td style="text-align: left; margin-left: 2%">
-                <div id="champ-year"/>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: left; margin-left: 2%"></td>
-            <td style="text-align: left; margin-left: 2%"></td>
-            <td style="text-align: left; margin-left: 2%">Edición N°:</td>
-            <td style="text-align: left; margin-left: 2%">
-                <div id="champ-edition"/>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: left; margin-left: 2%"></td>
-            <td style="text-align: left; margin-left: 2%"></td>
-            <td style="vertical-align: top; text-align: left; margin-left: 2%">Goleador:</td>
-            <td style="text-align: left; margin-left: 2%">
-                <div id="goleadores"/>
-            </td>
-        </tr>
-    </table>
-</form>
 <div class="container">
-    <h1 class="text text-success text-center ">
-        Anotaciones personalizadas
-    </h1>
-    <table id="tblCustom"
-           style="width:50%; text-align: center; margin-left: 5%; vertical-align: center; margin-bottom: 2px">
+    <form id="table" style="width:50%; text-align: center; margin-left: 5%">
+        <table class="table table-striped table-hover table-bordered">
+            <tr>
+                <th>Entidad</th>
+                <th>Código</th>
+                <th>Anotaciones</th>
+                <th>Valor</th>
+            </tr>
+            <tr>
+                <td>
+                    <div id="event-name"/>
+                </td>
+                <td>
+                    <div id="country-code"/>
+                <td>País Anfitrión:</td>
+                <td >
+                    <div id="host-country"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td ></td>
+                <td>Equipo ganador:</td>
+                <td >
+                    <div id="winner-team"/>
+                </td>
+            </tr>
+            <tr>
+                <td ></td>
+                <td></td>
+                <td>Año:</td>
+                <td >
+                    <div id="champ-year"/>
+                </td>
+            </tr>
+            <tr>
+                <td ></td>
+                <td ></td>
+                <td >Edición N°:</td>
+                <td>
+                    <div id="champ-edition"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Goleador:</td>
+                <td>
+                    <div id="goleadores"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div class="container">
+    <h1 class="text text-success text-center ">Anotaciones personalizadas</h1>
+    <table id="tblCustom" class="table table-striped table-hover table-bordered">
         <thead>
         <tr>
-            <th style="text-align: left; margin-left: 2%">
+            <th>
                 Anotación
             </th>
-            <th style="text-align: left; margin-left: 2%">
+            <th>
                 Valor
             </th>
-            <th style="text-align: left; margin-left: 2%">
+            <th>
                 Editar
             </th>
-            <th style="text-align: left; margin-left: 2%">
+            <th>
                 Eliminar
             </th>
         </tr>
@@ -130,8 +122,8 @@
     </table>
 </div>
 <form id="frmAdd">
-    <div class="modal fade " id="AddEntityModal">
-        <div class="modal-dialog">
+    <div class="modal fade"  id="AddEntityModal">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" style="text-align: left">
@@ -139,17 +131,19 @@
                     </h4>
                 </div>
                 <div class="modal-body">
-
-                    <label for="_annotationProperty">Nombre Anotación</label>
-                    <input id="_annotationProperty" type="text" name="annotationProperty"
-                           placeholder="Propiedad"/><br>
-                    <label for="_annotationValue">Valor Anotación</label>
-                    <input type="text" id="_annotationValue" name="annotationValue" placeholder="Valor"/><br>
-
+                    <div class="form-group">
+                        <label for="_annotationProperty">Nombre Anotación</label>
+                        <input id="_annotationProperty"  class="form-control" type="text" name="annotationProperty" placeholder="Propiedad" maxlength="20"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="_annotationValue">Valor Anotación</label>
+                        <input type="text" id="_annotationValue" maxlength="30" minlength="1" class="form-control" name="annotationValue" placeholder="Valor" />
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button id="btn" type="submit" onclick="return saveAnnotation()">Agregar</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="btn" class="btn btn-success" type="submit" onclick="return saveAnnotation()">Agregar
+                    </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -166,21 +160,24 @@
                     </h4>
                 </div>
                 <div class="modal-body">
+                    <div class="form-group">
                     <label for="idPropertyHolder">Nombre Anotación: </label>
                     <label id="idPropertyHolder"></label>
-                    <br>
+                    </div>
+                    <div class="form-group">
                     <label for="idValueHolder">Valor Anotación: </label>
-                    <input type="text" id="idValueHolder"></input>
+                    <input type="text" maxlength="30" minlength="1" class="form-control" id="idValueHolder"/>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button id="btnEdit" type="submit" onclick="return edAnnotation()">Editar</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="btnEdit" class="btn btn-success" type="submit" onclick="return edAnnotation()">Editar
+                    </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 </form>
 
-<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
 </body>
 </html>

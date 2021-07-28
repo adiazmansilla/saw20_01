@@ -1,0 +1,14 @@
+th {
+    text-align: center;
+    margin-left: 2%;
+}
+
+td{
+   vertical-align: top;
+    text-align: left;
+    margin-left: 2%;
+}
+
+.btnp{
+    text-align: center;
+}
