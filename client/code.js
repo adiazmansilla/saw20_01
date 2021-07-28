@@ -34,6 +34,7 @@ function fillEntities(req) {
 
         //Obtiene nombre del evento
         getEventName(data, req);
+
     })
     getCustomizedAnnotations(req);
 }
@@ -48,6 +49,7 @@ function getEventName(data, req) {
     //Obtiene el nombre del evento
     const eventName = data.entities[req]['labels']['es']['value'];
     document.getElementById('event-name').innerHTML = eventName;
+
 }
 
 /**
@@ -219,6 +221,7 @@ function deleteAnnotation(annotationProperty) {
             if (response.ok) {
                 window.alert('Anotación eliminada con éxito');
             } else {
+                window.alert('Ocurrió un error al eliminar la anotación');
                 throw new Error('Ocurrió un error al eliminar la anotación');
             }
         });
@@ -243,11 +246,11 @@ function addRow(annotationProperty, annotationValue) {
 
     // get the element you want to add the button to
     const tdButtonEdit = document.createElement("td");
-    tdButtonEdit.className="btnp"
+    tdButtonEdit.className = "btnp"
     // create the button object and add the text to it
     var btnEdit = document.createElement("button");
     btnEdit.className = "btn btn-success glyphicon glyphicon-pencil";
-   // btnEdit.innerHTML = "Editar";
+    // btnEdit.innerHTML = "Editar";
     btnEdit.onclick = function () {
         $('#modalEdit').modal('show');
         document.getElementById('idPropertyHolder').innerHTML = annotationProperty;
@@ -260,7 +263,7 @@ function addRow(annotationProperty, annotationValue) {
 
     // get the element you want to add the button to
     const tdButtonDel = document.createElement("td");
-    tdButtonDel.className="btnp";
+    tdButtonDel.className = "btnp";
     // create the button object and add the text to it
     var buttonDel = document.createElement("button");
     buttonDel.className = "btn btn-danger fa fa-trash";
