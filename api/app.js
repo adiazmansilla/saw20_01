@@ -4,9 +4,17 @@ const app = express()
 const root = path.resolve(__dirname, '..')
 const db = require('./queries')
 const wikidata = require('./wikidata')
+const bodyParser = require('body-parser')
 
 app.use(function (req, res, next) { console.log(req.url); next(); });
 app.use(express.static(root + '/client'));
+
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+)
 
 
 /* WIKIDATA RESOURCES */

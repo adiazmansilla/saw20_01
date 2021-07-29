@@ -34,7 +34,6 @@ function fillEntities(req) {
 
         //Obtiene nombre del evento
         getEventName(data, req);
-
     })
     getCustomizedAnnotations(req);
 }
@@ -49,7 +48,6 @@ function getEventName(data, req) {
     //Obtiene el nombre del evento
     const eventName = data.entities[req]['labels']['es']['value'];
     document.getElementById('event-name').innerHTML = eventName;
-
 }
 
 /**
@@ -278,3 +276,4 @@ function addRow(annotationProperty, annotationValue) {
 
     tabla.appendChild(trCreate);
 }
+

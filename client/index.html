@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SAW_01</title>
-    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAZFwUAz8vCAHJlUgDg4uIA08vLANTNyAAgHQ4A/f38AOnr6wA9NisA6u3xADw5KwArJhcAl4Z1ACspFwDb3d0A4eLjADIvIADk5uYA/vv3ACMjDwD9/f0A6OrpAOfr7AD+/f0A//39ANnW0gDa2dIAx8O+AOzu7AC0sKoA2tjYAO3v7wAWFgQAFxYEAPLv7wDf3dUA3tzbABcXBwDg3NsALiwYAN/h4QDh4eEA0crKANLKygAfGhAA1M3KAPj4+ADi5ucA5+jkANXT0wDo6uoAEhICAOzu7QDc19YAzMO/ANzc3ADe3NwAGhcIAOLd3wDh4N8A3+HiAEw+KgDl5eUA+vz8APz8/ADn6egA/vz8AFBINgDa09QAEA8DAFNMOQDKxMMAzMPAAI+OhwDe390A3uDgANHJyQBzaVkA+/z9AP/7+gDa0c8A6enpAFRINwDa1tUA6u7vANvW1QDg2dUA3dvbAOLk5AA1MB4A1c3NANXQzQCrrKIA+/v7AOXp6gD9+/sA5+nqAOvu8ABPTEQAU09EAEM9KgDd3twALysZAN/f3wDQyMgALi0fAOHf3wDh4OIAHRwIANTLyADm5+UA09HRAObo6AD++/wA6ejoAP3+/ABPSTwAiIWBALOtpgDp7e4AKCMUAJaDcgDc2toA4t7dAOHj4wDRzskA0szMANTMzADUz8wA+vr6ANbPzAD8+voA5ujpAN7Z2ADd2tsAFhUHAN/a2wC3trAA3t7eAODe3gBaUk8A6OPbAOXn5wDl6eQA5+fnAEtIOwDn6+oA2NPQAP7+/gDo7O0AEBACABEQAgAnJRMA2tXWANvZ2QDKxL8AeHVvAN7c2QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFRUVFRUVcp6KXoIVFRUVFRUVFUEjSHkiIToUm0MVFRUVFQcsgINcES0LZHs5YBUVFRV3LFsuNppYODlLZnsZFRWOTQQsg4eMWItMTCkPfhUVHGkrgI0yH5sqA3EdEokVdElNWpdGGlh9WRJdRAw9hFCcbpiIJgAwfV8KemUokFgTN1E0NDoGh2GWkw1HZzFrdDdXbXkCGzOWeCBTPg5zGHQFgUUBCXEIF3hVYmM1bBUVSpRUfG9SCAiWeF+WhXYVFU8eVIY8OEIWF5YXXxAVFRUVQH9WJz9OknWRj30vFRUVFRWVcFSZmZmZamheFRUVFRUVFRUVOySdJRUVFRUVFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" rel="icon" type="image/x-icon" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAZFwUAz8vCAHJlUgDg4uIA08vLANTNyAAgHQ4A/f38AOnr6wA9NisA6u3xADw5KwArJhcAl4Z1ACspFwDb3d0A4eLjADIvIADk5uYA/vv3ACMjDwD9/f0A6OrpAOfr7AD+/f0A//39ANnW0gDa2dIAx8O+AOzu7AC0sKoA2tjYAO3v7wAWFgQAFxYEAPLv7wDf3dUA3tzbABcXBwDg3NsALiwYAN/h4QDh4eEA0crKANLKygAfGhAA1M3KAPj4+ADi5ucA5+jkANXT0wDo6uoAEhICAOzu7QDc19YAzMO/ANzc3ADe3NwAGhcIAOLd3wDh4N8A3+HiAEw+KgDl5eUA+vz8APz8/ADn6egA/vz8AFBINgDa09QAEA8DAFNMOQDKxMMAzMPAAI+OhwDe390A3uDgANHJyQBzaVkA+/z9AP/7+gDa0c8A6enpAFRINwDa1tUA6u7vANvW1QDg2dUA3dvbAOLk5AA1MB4A1c3NANXQzQCrrKIA+/v7AOXp6gD9+/sA5+nqAOvu8ABPTEQAU09EAEM9KgDd3twALysZAN/f3wDQyMgALi0fAOHf3wDh4OIAHRwIANTLyADm5+UA09HRAObo6AD++/wA6ejoAP3+/ABPSTwAiIWBALOtpgDp7e4AKCMUAJaDcgDc2toA4t7dAOHj4wDRzskA0szMANTMzADUz8wA+vr6ANbPzAD8+voA5ujpAN7Z2ADd2tsAFhUHAN/a2wC3trAA3t7eAODe3gBaUk8A6OPbAOXn5wDl6eQA5+fnAEtIOwDn6+oA2NPQAP7+/gDo7O0AEBACABEQAgAnJRMA2tXWANvZ2QDKxL8AeHVvAN7c2QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFRUVFRUVcp6KXoIVFRUVFRUVFUEjSHkiIToUm0MVFRUVFQcsgINcES0LZHs5YBUVFRV3LFsuNppYODlLZnsZFRWOTQQsg4eMWItMTCkPfhUVHGkrgI0yH5sqA3EdEokVdElNWpdGGlh9WRJdRAw9hFCcbpiIJgAwfV8KemUokFgTN1E0NDoGh2GWkw1HZzFrdDdXbXkCGzOWeCBTPg5zGHQFgUUBCXEIF3hVYmM1bBUVSpRUfG9SCAiWeF+WhXYVFU8eVIY8OEIWF5YXXxAVFRUVQH9WJz9OknWRj30vFRUVFRWVcFSZmZmZamheFRUVFRUVFRUVOySdJRUVFRUVFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+          rel="icon" type="image/x-icon"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,16 +31,28 @@
         </thead>
         <tbody>
         <tr>
-            <td style="text-align: center"><a href="/DetalleEntidad.html" onclick="pass('Q1129985', 'Chile', '2015')"><img src="/images/Q1129985.jpg" id="ca2015" class="images"></a></td>
-            <td style="text-align: center"><a href="/DetalleEntidad.html" onclick="pass('Q576136', 'Centenario USA', '2016')"><img src="/images/Q576136.jpg" class="images"></a></td>
-            <td style="text-align: center"><a href="/DetalleEntidad.html" onclick="pass('Q4630358', 'Brasil', '2019')"><img src="/images/Q4630358.jpg" class="images"></a></td>
-            <td style="text-align: center"><a href="/DetalleEntidad.html" onclick="pass('Q58039558', 'Brasil', '2021')"><img src="/images/Q58039558.jpg" class="images"></a></td>
+            <td style="text-align: center"><a href="/DetalleEntidad.html"
+                                              onclick="pass('Q1129985', 'Chile', '2015')"><img
+                    src="/images/Q1129985.jpg" id="ca2015" class="images"></a></td>
+            <td style="text-align: center"><a href="/DetalleEntidad.html"
+                                              onclick="pass('Q576136', 'Centenario USA', '2016')"><img
+                    src="/images/Q576136.jpg" class="images"></a></td>
+            <td style="text-align: center"><a href="/DetalleEntidad.html"
+                                              onclick="pass('Q4630358', 'Brasil', '2019')"><img
+                    src="/images/Q4630358.jpg" class="images"></a></td>
+            <td style="text-align: center"><a href="/DetalleEntidad.html" onclick="pass('Q58039558', 'Brasil', '2021')"><img
+                    src="/images/Q58039558.jpg" class="images"></a></td>
         </tr>
         </tbody>
     </table>
 </div>
-
-
+<div>
+    <a href="/FormatPage.html">
+        <button type="button" id="btnFormatostexto" class="btn btn-primary">
+            Buscar en distintos formatos
+        </button>
+    </a>
+</div>
 <div class="table-responsive" style="margin-top: 3%">
     <h3 style="text-align: left; margin-left: 2%">Integrantes: </h3>
     <table class="table" style="margin-top: 2%">

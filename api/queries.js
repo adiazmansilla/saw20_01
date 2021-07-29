@@ -35,7 +35,7 @@ const getAnnotationsByEntityCode = (request, response) => {
   }
 
 const createAnnotation = (request, response) => {
-  //console.log(request.body);
+  console.log("body:" + request.body);
   const { annotationProperty, annotationValue, entityCode } = request.body
   
   pool.query('INSERT INTO entityAnnotation(annotationProperty, annotationValue, entityCode) VALUES ($1, $2, $3)', [annotationProperty, annotationValue, entityCode ], (error, results) => {
@@ -56,7 +56,7 @@ const updateAnnotation = (request, response) => {
       if (error) {
         throw error
       }
-      response.status(200).send(`Annotation modified`)
+      response.status(201).send(`Annotation modified`)
     }
   )
 }
@@ -73,7 +73,7 @@ const deleteAnnotation = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(200).send(`Annotation deleted`)
+    response.status(201).send(`Annotation deleted`)
   })
 }
 

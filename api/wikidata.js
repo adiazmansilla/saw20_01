@@ -1,6 +1,7 @@
 const newEngine = require('@comunica/actor-init-sparql').newEngine;
 const myEngine = newEngine();
 const request = require("request-promise");
+//const request = require("request");
 
 
 const getWikidataEntity = async (req, res) => {
