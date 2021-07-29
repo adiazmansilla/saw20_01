@@ -276,4 +276,3 @@ function addRow(annotationProperty, annotationValue) {
 
     tabla.appendChild(trCreate);
 }
-
