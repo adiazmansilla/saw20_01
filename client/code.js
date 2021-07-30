@@ -58,7 +58,6 @@ function getWinnerTeamName(req) {
     getEntities(req).then(data => {
         var winnerTeam = data.entities[req]['labels']['es']['value'];
         document.getElementById('winner-team').innerHTML = winnerTeam;
-        //setTimeout(window.stop,6000);
     }).then(()=>{
         window.stop();
     })
