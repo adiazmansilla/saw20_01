@@ -58,6 +58,8 @@ function getWinnerTeamName(req) {
     getEntities(req).then(data => {
         var winnerTeam = data.entities[req]['labels']['es']['value'];
         document.getElementById('winner-team').innerHTML = winnerTeam;
+        //setTimeout(window.stop,6000);
+    }).then(()=>{
         window.stop();
     })
 }
@@ -230,14 +232,11 @@ function deleteAnnotation(annotationProperty) {
     return false;
 }
 
-
 function addRow(annotationProperty, annotationValue) {
 
     var tabla = document.getElementById('tblCustom');
     const trCreate = document.createElement("tr");
     const trLabel = document.createElement("td");
-    ;
-
     const textLabel = document.createTextNode(annotationProperty);
     trLabel.appendChild(textLabel);
     trCreate.appendChild(trLabel);
