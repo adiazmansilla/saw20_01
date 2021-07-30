@@ -89,6 +89,7 @@ function getGoleador(req) {
  * @param req
  */
 function getCustomizedAnnotations(req) {
+    $('#tblCustom').find("tr:gt(0)").remove();
 
     getEntitiesInDB(req).then(data => {
         for (d in data) {
@@ -193,6 +194,8 @@ function edAnnotation() {
     }
     fetch('/api/entities/annotations', options).then((response) => {
         if (response.ok) {
+            getCustomizedAnnotations(entityCode);
+            window.alert('Anotación modificada con éxito');
             $('#modalEdit').modal('hide');
         } else {
             $('#modalEdit').modal('hide');
@@ -217,6 +220,7 @@ function deleteAnnotation(annotationProperty) {
     fetch(`/api/entities/${entityCode}/annotations/${annotationProperty}`, options)
         .then((response) => {
             if (response.ok) {
+                $('#tblCustom #' + annotationProperty).remove();
                 window.alert('Anotación eliminada con éxito');
             } else {
                 window.alert('Ocurrió un error al eliminar la anotación');
@@ -226,25 +230,27 @@ function deleteAnnotation(annotationProperty) {
     return false;
 }
 
-function addRow(annotationProperty, annotationValue) {
 
+function addRow(annotationProperty, annotationValue) {
 
     var tabla = document.getElementById('tblCustom');
     const trCreate = document.createElement("tr");
     const trLabel = document.createElement("td");
+    ;
+
     const textLabel = document.createTextNode(annotationProperty);
     trLabel.appendChild(textLabel);
     trCreate.appendChild(trLabel);
+    trCreate.setAttribute('id', annotationProperty);
 
     const trLabelV = document.createElement("td");
     const textLabelV = document.createTextNode(annotationValue);
     trLabelV.appendChild(textLabelV);
     trCreate.appendChild(trLabelV);
 
-
     // get the element you want to add the button to
     const tdButtonEdit = document.createElement("td");
-    tdButtonEdit.className = "btnp"
+    tdButtonEdit.className = "btnp";
     // create the button object and add the text to it
     var btnEdit = document.createElement("button");
     btnEdit.className = "btn btn-success glyphicon glyphicon-pencil";
